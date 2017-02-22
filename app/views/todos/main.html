@@ -1,0 +1,23 @@
+<div>
+    <h5>My Todo List</h5>
+    <div>
+        <div ng-repeat="item in ctrl.items as items">
+            <input type="checkbox" placeholder="Mark completed">
+            <span ng-bind="item.title"></span>
+            <p ng-bind="item.descr"></p>
+            <button ng-click="ctrl.chuck($index)">Remove TODO</button>
+        </div>
+    </div>
+    <div>
+        <h5>Add new Todo</h5>
+        <form name="frmTODO" novalidate ng-submit="frmTODO.$valid && ctrl.save()">
+            <div>
+                <label for="title">TODO Title</label>
+                <input type="text" id="title" ng-model="ctrl.item.title" required>
+            </div>
+            <div>
+                <button type="submit">Add TODO</button>
+            </div>
+        </form>
+    </div>
+</div>
