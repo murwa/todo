@@ -2,8 +2,8 @@
     <h5>My Todo List</h5>
     <div>
         <div ng-repeat="item in ctrl.items as items">
-            <input type="checkbox" placeholder="Mark completed">
-            <span ng-bind="item.title"></span>
+            <input type="checkbox" ng-model="item.completed" placeholder="Mark completed">
+            <span ng-class="{'strike-through' : item.completed}" ng-bind="item.title"></span>
             <p ng-bind="item.descr"></p>
             <button ng-click="ctrl.chuck($index)">Remove TODO</button>
         </div>
