@@ -14,4 +14,19 @@ describe('myApp.todo module', function () {
     it('should have a controller', function () {
         expect(makeController('TodoController')).toBeDefined();
     });
+
+    it('should remove todo', function () {
+        var controller = makeController('TodoController');
+        expect(controller.items.length).toEqual(2);
+        controller.chuck(0);
+        expect(controller.items.length).toEqual(1);
+    });
+
+    it('should add a todo', function () {
+        var controller = makeController('TodoController');
+        controller.item = {title: 'Test'};
+        expect(controller.items.length).toEqual(2);
+        controller.save();
+        expect(controller.items.length).toEqual(3);
+    });
 });
